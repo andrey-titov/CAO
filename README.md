@@ -2,6 +2,7 @@
 ContextualAO is a Unity package that includes a volume renderer with the Contextual Ambient Occlusion (CAO) algorithm that supports ambient occlusion with real-time clipping.
 
 [![Watch the video](https://img.youtube.com/vi/I1nA5n5v1-E/maxresdefault.jpg)](https://www.youtube.com/watch?v=I1nA5n5v1-E)
+(Click to watch)
 
 ## Installation
 Installation prerequisites: Windows 10/11 64-bit, git minimum version 2.14.0
