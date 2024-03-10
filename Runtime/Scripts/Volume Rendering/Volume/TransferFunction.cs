@@ -2,6 +2,7 @@ using ContextualAmbientOcclusion.Runtime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using UnityEngine;
 
@@ -29,42 +30,42 @@ namespace ContextualAmbientOcclusion.Runtime
 
             using (TextReader reader = File.OpenText(fileName))
             {
-                interpolationType = int.Parse(reader.ReadLine());
-                shadingEnabled = int.Parse(reader.ReadLine()) == 1;
+                interpolationType = int.Parse(reader.ReadLine(), CultureInfo.InvariantCulture);
+                shadingEnabled = int.Parse(reader.ReadLine(), CultureInfo.InvariantCulture) == 1;
 
                 // Phong
-                diffuseReflection = float.Parse(reader.ReadLine());
-                ambientReflection = float.Parse(reader.ReadLine());
-                specularReflection = float.Parse(reader.ReadLine());
-                specularReflectionPower = float.Parse(reader.ReadLine());
+                diffuseReflection = float.Parse(reader.ReadLine(), CultureInfo.InvariantCulture);
+                ambientReflection = float.Parse(reader.ReadLine(), CultureInfo.InvariantCulture);
+                specularReflection = float.Parse(reader.ReadLine(), CultureInfo.InvariantCulture);
+                specularReflectionPower = float.Parse(reader.ReadLine(), CultureInfo.InvariantCulture);
 
                 // Opacity TF
                 string[] opacityLine = reader.ReadLine().Split(' ');
-                opacityTF = new OpacityControlPoint[int.Parse(opacityLine[0]) / 2];
+                opacityTF = new OpacityControlPoint[int.Parse(opacityLine[0], CultureInfo.InvariantCulture) / 2];
                 for (int i = 0; i < opacityTF.Length; i++)
                 {
-                    opacityTF[i].intensity = float.Parse(opacityLine[i * 2 + 1]);
-                    opacityTF[i].opacity = float.Parse(opacityLine[i * 2 + 2]);
+                    opacityTF[i].intensity = float.Parse(opacityLine[i * 2 + 1], CultureInfo.InvariantCulture);
+                    opacityTF[i].opacity = float.Parse(opacityLine[i * 2 + 2], CultureInfo.InvariantCulture);
                 }
 
                 // Gradient TF
                 string[] gradientLine = reader.ReadLine().Split(' ');
-                gradientTF = new GradientControlPoint[int.Parse(gradientLine[0]) / 2];
+                gradientTF = new GradientControlPoint[int.Parse(gradientLine[0], CultureInfo.InvariantCulture) / 2];
                 for (int i = 0; i < gradientTF.Length; i++)
                 {
-                    gradientTF[i].intensity = float.Parse(gradientLine[i * 2 + 1]);
-                    gradientTF[i].opacity = float.Parse(gradientLine[i * 2 + 2]);
+                    gradientTF[i].intensity = float.Parse(gradientLine[i * 2 + 1], CultureInfo.InvariantCulture);
+                    gradientTF[i].opacity = float.Parse(gradientLine[i * 2 + 2], CultureInfo.InvariantCulture);
                 }
 
                 // Gradient TF
                 string[] colorLine = reader.ReadLine().Split(' ');
-                colorTF = new ColorControlPoint[int.Parse(colorLine[0]) / 4];
+                colorTF = new ColorControlPoint[int.Parse(colorLine[0], CultureInfo.InvariantCulture) / 4];
                 for (int i = 0; i < colorTF.Length; i++)
                 {
-                    colorTF[i].intensity = float.Parse(colorLine[i * 4 + 1]);
-                    float r = float.Parse(colorLine[i * 4 + 2]);
-                    float g = float.Parse(colorLine[i * 4 + 3]);
-                    float b = float.Parse(colorLine[i * 4 + 4]);
+                    colorTF[i].intensity = float.Parse(colorLine[i * 4 + 1], CultureInfo.InvariantCulture);
+                    float r = float.Parse(colorLine[i * 4 + 2], CultureInfo.InvariantCulture);
+                    float g = float.Parse(colorLine[i * 4 + 3], CultureInfo.InvariantCulture);
+                    float b = float.Parse(colorLine[i * 4 + 4], CultureInfo.InvariantCulture);
                     colorTF[i].color = new Vector3(r, g, b);
                 }
             }
