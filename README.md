@@ -4,6 +4,7 @@ ContextualAO is a Unity package that includes a volume renderer with the Context
 [![Watch the video](https://img.youtube.com/vi/I1nA5n5v1-E/maxresdefault.jpg)](https://www.youtube.com/watch?v=I1nA5n5v1-E)
 
 ## Installation
+Installation prerequisites: Windows 10/11 64-bit, git minimum version 2.14.0
 1) Create or open a project in Unity 2022.3 or later.
 2) Navigate to *Window => Package Manager*. The *Package Manager* window should open.
 3) Click on the small plus in the top left of the *Package Manager* window, and then click on **Add Package from git URL...**
